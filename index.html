@@ -8,7 +8,7 @@
 <meta property="og:title" content="Younes Beriane">
 <meta name="color-scheme" content="dark light">
 <link rel="icon" id="fav" href="data:,">
-<script>(function(){var l;try{l=localStorage.getItem("lang")}catch(e){}if(l!=="fr"&&l!=="en"){var n=(navigator.languages&&navigator.languages[0])||navigator.language||"fr";l=/^fr/i.test(n)?"fr":"en"}var h=document.documentElement;h.setAttribute("data-lang",l);h.lang=l})();</script>
+<script>(function(){var l;try{l=localStorage.getItem("lang")}catch(e){}if(l!=="fr"&&l!=="en"){var n=(navigator.languages&&navigator.languages[0])||navigator.language||"fr";l=/^fr/i.test(n)?"fr":"en"}var h=document.documentElement;h.setAttribute("data-lang",l);h.className="js";h.lang=l})();</script>
 <style>
 :root{
   --bg:#0d1117;--surface:#161b22;--border:#30363d;--text:#e6edf3;--muted:#8b949e;--faint:#6e7681;
@@ -17,7 +17,7 @@
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme: light){:root{
-  --bg:#ffffff;--surface:#f6f8fa;--border:#d0d7de;--text:#1f2328;--muted:#59636e;--faint:#818b98;
+  --bg:#ffffff;--surface:#f6f8fa;--border:#d0d7de;--text:#1f2328;--muted:#59636e;--faint:#6a737d;
   --accent:#8a5d00;--link:#b3401d;--g1:#b07d00;--g2:#b3401d;
 }}
 *{box-sizing:border-box}
@@ -91,6 +91,37 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
   dd{margin-bottom:12px}
   .prs{grid-template-columns:1fr}
 }
+
+/* motion */
+.hero{position:relative;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-40px -10vw 0;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 60% at 20% 40%,color-mix(in srgb,var(--g1) 16%,transparent),transparent 70%),radial-gradient(40% 60% at 80% 60%,color-mix(in srgb,var(--g2) 13%,transparent),transparent 70%);
+  background-size:140% 140%;animation:drift 22s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;inset:-40px -10vw 0;z-index:-1;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.hero::before,.hero::after{-webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 50%,#000 35%,transparent 100%);mask-image:radial-gradient(ellipse 60% 70% at 50% 50%,#000 35%,transparent 100%)}
+@keyframes drift{from{background-position:0 0}to{background-position:100% 60%}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero>*,.hero .role,.hero .pitch,.hero .facts,.hero .links{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero>div>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.hero>div>:nth-child(2){animation-delay:.1s}.hero>div>:nth-child(3){animation-delay:.2s}
+.hero>div>:nth-child(4){animation-delay:.3s}.hero>div>:nth-child(5){animation-delay:.4s}
+.hero>div{animation:none}
+.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.row,.prs li{transition:transform .2s ease,border-color .2s ease,background-color .2s ease}
+.row{padding:10px 12px;margin:0 -12px 8px;border:1px solid transparent;border-radius:8px}
+.row:hover,.prs li:hover{transform:translateY(-2px)}
+.row:hover{background:var(--surface);border-color:var(--border)}
+.prs li:hover{border-bottom-color:var(--accent)}
+[data-count]{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion:reduce){
+  .hero::before,.hero>div>*,.hero>svg{animation:none}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .row,.prs li{transition:none}.row:hover,.prs li:hover{transform:none}
+}
+@media (max-width:760px){.hero::before,.hero::after{inset:-20px -16px 0}}
 </style>
 </head>
 <body>
@@ -249,6 +280,26 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
   var list = [["tw93/Pake", 1393, 61800], ["debpalash/VoiceStudio", 2174, 39800], ["vectorize-io/hindsight", 4752, 37100], ["eosphoros-ai/DB-GPT", 3264, 20100], ["langchain-ai/openwiki", 914, 16800], ["maplibre/maplibre-gl-js", 8553, 11800], ["maplibre/maplibre-gl-js", 8554, 11800], ["Tencent/BrowserSkill", 283, 7500], ["MakazhanAlpamys/Soup", 1256, 7400], ["eugeniughelbur/obsidian-second-brain", 310, 4600], ["skyhook-io/radar", 1895, 3500], ["neomjs/neo", 19154, 3300], ["snapotter-hq/SnapOtter", 1229, 2800], ["snapotter-hq/SnapOtter", 1230, 2800], ["snapotter-hq/SnapOtter", 1231, 2800], ["snapotter-hq/SnapOtter", 1247, 2800], ["jsverse/transloco", 1026, 2300], ["unstablebuild/rune", 141, 1200], ["rust-fuzz/arbitrary", 242, 883], ["bazelbuild/rules_rust", 4282, 845], ["apmantza/pi-lens", 3486, 443]].map(function(p){ return {repo: p[0], n: p[1], stars: p[2]}; });
   var STAR = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .9l2.2 4.6 5 .7-3.6 3.5.9 5L8 12.3l-4.5 2.4.9-5L.8 6.2l5-.7z"/></svg>';
   function fmt(n){ return n >= 1000 ? (Math.round(n / 100) / 10).toString().replace(/\.0$/, "") + "k" : String(n); }
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cio = !RM && "IntersectionObserver" in window ? new IntersectionObserver(function(es){
+    es.forEach(function(en){ if (en.isIntersecting) { cio.unobserve(en.target); en.target._seen = 1; run(en.target); } });
+  }) : null;
+  function run(e){
+    var to = e._t, from = e._seen ? (e._shown || 0) : 0, t0 = performance.now();
+    if (e._raf) cancelAnimationFrame(e._raf);
+    if (!e._seen || from === to || RM) { e._shown = to; e.textContent = to; return; }
+    (function step(t){
+      var k = Math.min(1, (t - t0) / 1100), v = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)));
+      e._shown = v; e.textContent = v;
+      if (k < 1) e._raf = requestAnimationFrame(step);
+    })(t0);
+  }
+  function setCount(e, v){
+    e._t = v;
+    if (!cio) { e.textContent = v; return; }
+    if (e._seen) { run(e); return; }
+    if (!e._obs) { e._obs = 1; cio.observe(e); }
+  }
   function render(){
     list.sort(function(a, b){ return b.stars - a.stars || a.repo.localeCompare(b.repo) || a.n - b.n; });
     var ol = document.getElementById("prs"); ol.textContent = "";
@@ -263,10 +314,15 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
       var s = document.createElement("span"); s.className = "stars"; s.innerHTML = STAR; s.appendChild(document.createTextNode(fmt(p.stars)));
       li.appendChild(a); li.appendChild(s); ol.appendChild(li);
     });
-    document.querySelectorAll('[data-count="prs"]').forEach(function(e){ e.textContent = list.length; });
-    document.querySelectorAll('[data-count="projects"]').forEach(function(e){ e.textContent = Object.keys(projects).length; });
+    document.querySelectorAll('[data-count="prs"]').forEach(function(e){ setCount(e, list.length); });
+    document.querySelectorAll('[data-count="projects"]').forEach(function(e){ setCount(e, Object.keys(projects).length); });
   }
   render();
+  var rv = document.querySelectorAll("main section:not(.hero)");
+  if ("IntersectionObserver" in window && !RM) {
+    var ro = new IntersectionObserver(function(es){ es.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); } }); }, {threshold: .08});
+    rv.forEach(function(x){ x.classList.add("reveal"); ro.observe(x); });
+  }
 
   function apply(d){
     var known = {};
