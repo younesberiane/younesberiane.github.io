@@ -150,8 +150,8 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
       <p class="role"><span data-l="fr">Étudiant en MSc Digital Marketing Management</span><span data-l="en">MSc Digital Marketing Management student</span><span class="school">Rennes School of Business</span></p>
       <p class="pitch"><span data-l="fr">Je cherche une alternance ou un stage en marketing digital.</span><span data-l="en">Looking for a work-study position or an internship in digital marketing.</span></p>
       <ul class="facts">
-        <li><b data-count="prs">21</b> <span data-l="fr">PR fusionnées</span><span data-l="en">merged PRs</span></li>
-        <li><b data-count="projects">17</b> <span data-l="fr">projets open source</span><span data-l="en">open-source projects</span></li>
+        <li><b data-count="prs">35</b> <span data-l="fr">PR fusionnées</span><span data-l="en">merged PRs</span></li>
+        <li><b data-count="projects">26</b> <span data-l="fr">projets open source</span><span data-l="en">open-source projects</span></li>
         <li><b>CompTIA Security+</b></li>
       </ul>
       <ul class="links">
@@ -180,7 +180,7 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
 
   <section id="open-source">
     <h2>Open source</h2>
-    <p class="intro"><span data-l="fr"><b data-count="prs">21</b> PR fusionnées dans <b data-count="projects">17</b> projets, classées par étoiles GitHub.</span><span data-l="en"><b data-count="prs">21</b> merged PRs across <b data-count="projects">17</b> projects, sorted by GitHub stars.</span></p>
+    <p class="intro"><span data-l="fr"><b data-count="prs">35</b> PR fusionnées dans <b data-count="projects">26</b> projets, classées par étoiles GitHub.</span><span data-l="en"><b data-count="prs">35</b> merged PRs across <b data-count="projects">26</b> projects, sorted by GitHub stars.</span></p>
     <ol class="prs" id="prs"></ol>
     <p class="more"><a href="https://github.com/drakeo338">github.com/drakeo338</a></p>
   </section>
@@ -277,7 +277,8 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
   document.querySelectorAll(".lang button").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.getAttribute("data-set")); }); });
   setLang(root.getAttribute("data-lang") === "en" ? "en" : "fr");
 
-  var list = [["tw93/Pake", 1393, 61800], ["debpalash/VoiceStudio", 2174, 39800], ["vectorize-io/hindsight", 4752, 37100], ["eosphoros-ai/DB-GPT", 3264, 20100], ["langchain-ai/openwiki", 914, 16800], ["maplibre/maplibre-gl-js", 8553, 11800], ["maplibre/maplibre-gl-js", 8554, 11800], ["Tencent/BrowserSkill", 283, 7500], ["MakazhanAlpamys/Soup", 1256, 7400], ["eugeniughelbur/obsidian-second-brain", 310, 4600], ["skyhook-io/radar", 1895, 3500], ["neomjs/neo", 19154, 3300], ["snapotter-hq/SnapOtter", 1229, 2800], ["snapotter-hq/SnapOtter", 1230, 2800], ["snapotter-hq/SnapOtter", 1231, 2800], ["snapotter-hq/SnapOtter", 1247, 2800], ["jsverse/transloco", 1026, 2300], ["unstablebuild/rune", 141, 1200], ["rust-fuzz/arbitrary", 242, 883], ["bazelbuild/rules_rust", 4282, 845], ["apmantza/pi-lens", 3486, 443]].map(function(p){ return {repo: p[0], n: p[1], stars: p[2]}; });
+  var list = [["tw93/Pake", 1393, 61789], ["debpalash/VoiceStudio", 2174, 46470], ["vectorize-io/hindsight", 4752, 42030], ["t8y2/dbx", 10275, 21662], ["dream-num/univer", 7744, 21623], ["eosphoros-ai/DB-GPT", 3264, 20066], ["langchain-ai/openwiki", 914, 16858], ["maplibre/maplibre-gl-js", 8553, 11770], ["maplibre/maplibre-gl-js", 8554, 11770], ["Tencent/BrowserSkill", 283, 7860], ["MakazhanAlpamys/Soup", 1256, 7529], ["MakazhanAlpamys/Soup", 1377, 7529], ["MakazhanAlpamys/Soup", 1382, 7529], ["TabularisDB/tabularis", 831, 5078], ["eugeniughelbur/obsidian-second-brain", 310, 4637], ["skyhook-io/radar", 1895, 3540], ["neomjs/neo", 19154, 3280], ["snapotter-hq/SnapOtter", 1229, 2761], ["snapotter-hq/SnapOtter", 1230, 2761], ["snapotter-hq/SnapOtter", 1231, 2761], ["snapotter-hq/SnapOtter", 1247, 2761], ["rust-lang/libc", 5560, 2617], ["jsverse/transloco", 1026, 2282], ["zzet/gortex", 826, 1805], ["LargeModGames/spotatui", 648, 1395], ["unstablebuild/rune", 141, 1209], ["reticlehq/reticle", 1169, 916], ["reticlehq/reticle", 1170, 916], ["reticlehq/reticle", 1182, 916], ["rust-fuzz/arbitrary", 242, 883], ["bazelbuild/rules_rust", 4282, 846], ["desplega-ai/agent-swarm", 1652, 840], ["Harry-kp/vortix", 361, 697], ["apmantza/pi-lens", 3486, 446], ["apmantza/pi-lens", 3643, 446]].map(function(p){ return {repo: p[0], n: p[1], stars: p[2]}; });
+  function starsOf(r){ for (var i = 0; i < list.length; i++) if (list[i].repo === r) return list[i].stars; return 0; }
   var STAR = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 .9l2.2 4.6 5 .7-3.6 3.5.9 5L8 12.3l-4.5 2.4.9-5L.8 6.2l5-.7z"/></svg>';
   function fmt(n){ return n >= 1000 ? (Math.round(n / 100) / 10).toString().replace(/\.0$/, "") + "k" : String(n); }
   var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -311,7 +312,7 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
       var o = document.createElement("span"); o.className = "owner"; o.textContent = parts[0] + "/";
       var num = document.createElement("span"); num.className = "num"; num.textContent = " #" + p.n;
       a.appendChild(o); a.appendChild(document.createTextNode(parts[1])); a.appendChild(num);
-      var s = document.createElement("span"); s.className = "stars"; s.innerHTML = STAR; s.appendChild(document.createTextNode(fmt(p.stars)));
+      var s = document.createElement("span"); s.className = "stars"; if (p.stars > 0) { s.innerHTML = STAR; s.appendChild(document.createTextNode(fmt(p.stars))); }
       li.appendChild(a); li.appendChild(s); ol.appendChild(li);
     });
     document.querySelectorAll('[data-count="prs"]').forEach(function(e){ setCount(e, list.length); });
@@ -329,7 +330,7 @@ footer .wrap{padding-top:22px;padding-bottom:36px;font:italic 13px var(--mono);c
     list.forEach(function(p){ known[p.repo.toLowerCase() + "#" + p.n] = 1; if (d.stars[p.repo] != null) p.stars = d.stars[p.repo]; });
     d.merged.forEach(function(m){
       var k = m.repo.toLowerCase() + "#" + m.n;
-      if (!known[k]) { known[k] = 1; list.push({repo: m.repo, n: m.n, stars: d.stars[m.repo] || 0}); }
+      if (!known[k]) { known[k] = 1; list.push({repo: m.repo, n: m.n, stars: d.stars[m.repo] || starsOf(m.repo)}); }
     });
     render();
   }
